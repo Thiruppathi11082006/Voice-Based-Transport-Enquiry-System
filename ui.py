@@ -77,6 +77,17 @@ def apply_styles():
     </style>
     """.replace("__BG__", load_background_image())
     st.markdown(css, unsafe_allow_html=True)
+    
+    # Inject Vercel Web Analytics
+    vercel_analytics = """
+    <script>
+      window.va = window.va || function () { 
+        (window.vaq = window.vaq || []).push(arguments); 
+      };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    """
+    st.markdown(vercel_analytics, unsafe_allow_html=True)
 
 
 def init_session_state():
